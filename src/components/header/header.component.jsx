@@ -9,15 +9,15 @@ import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selector";
 
 import CartIcon from "../cart-icon/cart-icon.component";
-import Cart from "../cart-dropdown/cart-dropdown.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+
 import "./header.styles.scss";
 
 const Header = ({ currentUser, hidden }) => (
   <div className="header">
-    <Link to="/" className="logo-container">
+    <Link className="logo-container" to="/">
       <Logo className="logo" />
     </Link>
-
     <div className="options">
       <Link className="option" to="/shop">
         SHOP
@@ -36,8 +36,7 @@ const Header = ({ currentUser, hidden }) => (
       )}
       <CartIcon />
     </div>
-
-    {hidden ? null : <Cart />}
+    {hidden ? null : <CartDropdown />}
   </div>
 );
 
